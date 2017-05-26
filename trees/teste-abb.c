@@ -50,29 +50,29 @@ int main() {
 //   printf("\nEm ordem: ");
 //   inorder(a);
 //
-  insere(&a, 18);
-  insere(&a, 12);
-  insere(&a, 39);
-  insere(&a, 10);
-  insere(&a, 13);
-  insere(&a, 48);
-  insere(&a, 17);
-  insere(&a, 42);
-  insere(&a, 14);
-  insere(&a, 43);
-  insere(&a, 28);
   insere(&a, 20);
+  insere(&a, 10);
+  insere(&a, 5);
+  insere(&a, 15);
+  insere(&a, 7);
+  insere(&a, 6);
+  insere(&a, 13);
+  insere(&a, 30);
   insere(&a, 25);
+  insere(&a, 35);
+  insere(&a, 22);
+  insere(&a, 27);
+  insere(&a, 37);
 //
 //   printf("\n\n");
 //   num = rand()%50;
 //   printf("\nbusca: %d", num);
-    int aaa = busca(a, 29);
+  Arvore * aaa = search_node(&a, 25);
 
-  if (aaa)
-    printf(" Encontrou");
+  if (aaa != NULL && (*aaa)->info == 25)
+    printf(" Encontrou\n");
   else
-    printf(" Nao encontrou");
+    printf(" Nao encontrou\n");
 //
 //   num = rand()%50;
 //   printf("\nbusca: %d", num);
@@ -81,8 +81,21 @@ int main() {
 //   else
 //     printf(" Nao encontrou");
 //
-//   printf("\nEm ordem: ");
+ printf("\nEm ordem: \n");
   inorder(a);
+  printf("\n");
+
+
+  Arvore minimun = min(a);
+  printf("min: %d \n", minimun->info);
+
+  Arvore maximum = max(a);
+  printf("max: %d \n", maximum->info);
+
+  printf("Try to remove 5\n");
+  remove_arv(&a, 5);
+  inorder(a);
+  printf("\n");
 //
 // //  for (i = 0; i < 5; i++){
 //   	printf("\n\n remove: ");

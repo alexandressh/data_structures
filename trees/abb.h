@@ -1,5 +1,5 @@
 /*
- * Árvores binárias de busca.
+ * ï¿½rvores binï¿½rias de busca.
  */
 
 
@@ -27,15 +27,19 @@ int n_rec_busca(Arvore p, int chave);
 int  insere(Arvore *p, int chave);
 
 /* Retorna 0 se a chave for repetida */
-/* Versão não recursiva */
+/* Versï¿½o nï¿½o recursiva */
 int  n_rec_insere(Arvore *p, int chave);
 
 
-/* Retorna 0 se a chave não for encontrada */
+/* Retorna 0 se a chave nï¿½o for encontrada */
 int remove_arv(Arvore *p, int chave);
 
-/* Verifica se p é uma árvore de busca */
+/* Verifica se p ï¿½ uma ï¿½rvore de busca */
 int verifica_busca(Arvore p);
 
-/* Verifica se p é uma árvore de busca */
+/* Verifica se p ï¿½ uma ï¿½rvore de busca */
 int verifica_busca2(Arvore p);
+
+Arvore min(Arvore p);
+Arvore max(Arvore p);
+Arvore* search_node(Arvore* p, int chave);

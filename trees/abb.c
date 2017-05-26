@@ -75,6 +75,29 @@ int  n_rec_insere(Arvore *p, int chave){
 
 /* Retorna 0 se a chave n�o for encontrada */
 int remove_arv(Arvore *p, int chave){
+    Arvore * r = search_node(p, chave);
+    if(r == NULL) {
+        return 0;
+    }
+
+    // LEAF?
+    if((*r)->esq == NULL && (*r)->dir == NULL) {
+      free(*r);
+      (*r) = NULL;
+      return 1;
+    }
+
+    if((*r)->dir != NULL && (*r)->esq == NULL) {
+        No ** tmp = r;
+        (*r)->dir = (*tmp)->dir;
+        (*r)->esq = (*tmp)->esq;
+        free(*tmp);
+        tmp = NULL;
+        *tmp = (*r);
+        return 1;
+    }
+
+    printf("HUE\n");
 
 }
 
@@ -86,4 +109,36 @@ int verifica_busca(Arvore p){
 /* Verifica se p � uma �rvore de busca */
 int verifica_busca2(Arvore p){
 
+}
+
+Arvore * search_node(Arvore * p, int chave) {
+  if(&(*p) == NULL) {
+    return NULL;
+  }
+
+  if((*p)->info == chave) {
+    return p;
+  }
+
+  if(chave > (*p)->info) {
+    return search_node(&(*p)->dir, chave);
+  }
+
+  if(chave < (*p)->info) {
+    return search_node(&(*p)->esq, chave);
+  }
+}
+
+Arvore min(Arvore p) {
+  if(p->esq == NULL) {
+    return p;
+  }
+  return min(p->esq);
+}
+
+Arvore max(Arvore p) {
+  if(p->dir == NULL) {
+    return p;
+  }
+  return max(p->dir);
 }
